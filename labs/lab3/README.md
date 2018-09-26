@@ -1,0 +1,2 @@
+- Bag of Words Classification  
+- How to use FastText library
