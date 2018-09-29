@@ -1,3 +1,7 @@
+data/
+pickle_objects/
+plots/
+
 # MAC OS stuff
 .DS_Store
 
@@ -105,3 +109,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# pickle files
+*.pkl
+*.p
