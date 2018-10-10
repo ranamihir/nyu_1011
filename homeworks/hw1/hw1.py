@@ -42,7 +42,7 @@ NUM_VAL = 5000
 
 MAX_N = 3           # max n for n-grams
 LR = 1e-3           # learning rate
-VOCAB_SIZE = 10000  # max vocab size
+VOCAB_SIZE = 50000  # max vocab size
 MAX_SENTENCE_LENGTH = 200
 EMB_DIM = 256       # size of embedding
 BATCH_SIZE = args.batch_size    # input batch size for training
@@ -305,7 +305,7 @@ def run_training(model, train_loader, val_loader, criterion, optimizer, n_epochs
 
     return train_loss_history, val_accuracies
 
-def hyperparameter_tuning(train_data, train_data_tokens, val_data, val_data_tokens, all_train_ngrams, params_dict, use_scheduler=False):
+def hyperparameter_tuning(train_data, val_data, tokenizer, params_dict, use_scheduler=False):
     try:
         cv_results = pd.DataFrame(columns=['batch_size', 'lr', 'emb_dim', 'vocab_size', \
                                            'max_sent_length', 'optimizer', 'ngrams', \
@@ -440,6 +440,10 @@ def main():
 
     train_loss_history, val_accuracies = run_training(model, train_loader, val_loader, criterion, optimizer, N_EPOCHS, scheduler)
 
+    print("After training for {} epochs:".format(N_EPOCHS))
+    print("Train Accuracy: {}".format(test_model(train_loader, model)))
+    print("Val Accuracy: {}".format(test_model(val_loader, model)))
+
     train_loss_history = pd.DataFrame({
         'train': train_loss_history
     })
@@ -458,9 +462,6 @@ def main():
     plt.tight_layout()
     plt.savefig(os.path.join(PLOTS_DIR, 'val_accuracies_hist_{}.jpg'.format(TARGET)))
 
-    print("After training for {} epochs:".format(N_EPOCHS))
-    print("Val Accuracy: {}".format(test_model(val_loader, model)))
-
     params_dict = {
         'BATCH_SIZEs': pd.DataFrame([64], columns=['batch_size']),
         'LRs': pd.DataFrame([1e-3], columns=['lr']),
@@ -471,7 +472,7 @@ def main():
         'NGRAMs': pd.DataFrame(list(range(1,5)), columns=['ngrams'])
     }
 
-    cv_results = hyperparameter_tuning(train_data, train_data_tokens, val_data, val_data_tokens, all_train_ngrams, params_dict, args.scheduler)
+    cv_results = hyperparameter_tuning(train_data, val_data, tokenizer, params_dict, args.scheduler)
     pickle.dump(cv_results, open(os.path.join(DATA_DIR, 'cv_results_{}.pkl'.format(TARGET)), 'wb'))
 
     best_conf = cv_results[cv_results['max_accuracy'] == np.max(cv_results['max_accuracy'])].iloc[0]
