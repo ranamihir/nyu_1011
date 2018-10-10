@@ -430,3 +430,14 @@ NGRAMS = pd.DataFrame(list(range(1,5)), columns=['ngrams'])
 
 cv_results = hyperparameter_tuning()
 pickle.dump(cv_results, open(os.path.join(DATA_DIR, 'cv_results.pkl'), 'wb'))
+
+best_conf = cv_results[cv_results['max_accuracy'] == np.max(cv_results['max_accuracy'])].iloc[0]
+print('Best hyperparameter configuration:\n', best_conf)
+
+plt.figure(figsize=(10,8))
+plt.plot(best_conf['train_loss_hist'])
+plt.savefig(os.path.join(PLOTS_DIR, 'train_loss_best.jpg'))
+
+plt.figure(figsize=(10,8))
+plt.plot(best_conf['val_accuracies'])
+plt.savefig(os.path.join(PLOTS_DIR, 'val_accuracies_best.jpg'))
