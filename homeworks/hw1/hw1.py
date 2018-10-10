@@ -463,8 +463,8 @@ def main():
     plt.savefig(os.path.join(PLOTS_DIR, 'val_accuracies_hist_{}.jpg'.format(TARGET)))
 
     params_dict = {
-        'BATCH_SIZEs': pd.DataFrame([64], columns=['batch_size']),
-        'LRs': pd.DataFrame([1e-3], columns=['lr']),
+        'BATCH_SIZEs': pd.DataFrame([32, 64], columns=['batch_size']),
+        'LRs': pd.DataFrame([1e-2, 1e-3], columns=['lr']),
         'EMB_DIMs': pd.DataFrame([100, 512, 1024], columns=['emb_dim']),
         'VOCAB_SIZEs': pd.DataFrame([10000, 20000, 50000], columns=['vocab_size']),
         'OPTIMIZERS': pd.DataFrame(['adam', 'sgd'], columns=['optimizer']),
