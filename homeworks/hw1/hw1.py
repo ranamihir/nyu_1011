@@ -305,7 +305,7 @@ def run_training(model, train_loader, val_loader, criterion, optimizer, n_epochs
 
     return train_loss_history, val_accuracies
 
-def hyperparameter_tuning(train_data, val_data, tokenizer, params_dict, use_scheduler=False):
+def hyperparameter_tuning(train_data, val_data, tokenizer, stopwords, punctuations, params_dict, use_scheduler=False):
     try:
         cv_results = pd.DataFrame(columns=['batch_size', 'lr', 'emb_dim', 'vocab_size', \
                                            'max_sent_length', 'optimizer', 'ngrams', \
@@ -472,7 +472,7 @@ def main():
         'NGRAMs': pd.DataFrame(list(range(1,5)), columns=['ngrams'])
     }
 
-    cv_results = hyperparameter_tuning(train_data, val_data, tokenizer, params_dict, args.scheduler)
+    cv_results = hyperparameter_tuning(train_data, val_data, tokenizer, stopwords, punctuations, params_dict, args.scheduler)
     pickle.dump(cv_results, open(os.path.join(DATA_DIR, 'cv_results_{}.pkl'.format(TARGET)), 'wb'))
 
     best_conf = cv_results[cv_results['max_accuracy'] == np.max(cv_results['max_accuracy'])].iloc[0]
