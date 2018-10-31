@@ -1,0 +1,4 @@
+|sentence1|sentence2|label|predicted
+0|A guy singing on stage with a cool black shirt , while turning his microphone to the audience so they can sing along .|A guy is telling a joke on stage .|0|1
+1|Two basketball players in black and white outfits are standing on a basketball court , talking .|The two basketball players are <unk> .|2|0
+2|Two men standing near a metal structure in front of a brick wall .|Men stand in line at a water fountain in front of a brick building .|1|0

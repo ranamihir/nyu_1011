@@ -1,0 +1,4 @@
+|sentence1|sentence2|label|predicted
+0|A woman is sitting at a desk near to a window that has a huge picture of a hand painted on it .|A tall person sitting|1|1
+1|A young girl with long hair , glasses and a lip ring playing on her iPhone in a brightly lit room .|a girl with long hair|2|2
+2|Young boys playing indoor basketball , one team has black and white uniforms , the other has orange and white .|Several friends are playing a game of basketball .|1|1
