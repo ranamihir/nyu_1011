@@ -1,4 +1,4 @@
-|sentence1|sentence2|label
-0|Three women on a stage , one wearing red shoes , black pants , and a gray shirt is sitting on a prop , another is sitting on the floor , and the third wearing a black shirt and pants is standing , as a gentleman in the back tunes|There are two women standing on the stage|0
-1|A lone , <unk> year old blond child in a blue jacket is putting a small black plastic item in his mouth as he kneels on a waiting room couch pointed toward the back while looking at something or someone not in the room .|The couch is pointed toward the front .|0
-2|A man in a dark floral shirt and black jeans walks buy a brightly colored wall painted with a woman with bright green eyes .|A man walks past a newly painted mural of a woman .|2
+|sentence1|sentence2|label|predicted
+0|A guy singing on stage with a cool black shirt , while turning his microphone to the audience so they can sing along .|A guy is telling a joke on stage .|0|1
+1|Two basketball players in black and white outfits are standing on a basketball court , talking .|The two basketball players are <unk> .|2|0
+2|Two men standing near a metal structure in front of a brick wall .|Men stand in line at a water fountain in front of a brick building .|1|0

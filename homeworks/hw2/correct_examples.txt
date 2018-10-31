@@ -1,4 +1,4 @@
-|sentence1|sentence2|label
-0|A group of people dressed in Santa Claus suits are looking towards an audience while a DJ runs a sound board and another person throws green balls into the air .|A band plays at a beach party .|1
-1|Three <unk> ladies sitting at a table doing a yarn work in a room , at the background are similar groups of ladies doing similar work .|The ladies are discussing what they are going to do tonight .|1
-2|Two kids on a boat , one with a paddle , and the other on the edge wearing a life vest .|A kid is wearing a life vest .|2
+|sentence1|sentence2|label|predicted
+0|A woman is sitting at a desk near to a window that has a huge picture of a hand painted on it .|A tall person sitting|1|1
+1|A young girl with long hair , glasses and a lip ring playing on her iPhone in a brightly lit room .|a girl with long hair|2|2
+2|Young boys playing indoor basketball , one team has black and white uniforms , the other has orange and white .|Several friends are playing a game of basketball .|1|1
